@@ -4,20 +4,28 @@
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
         k = 2
-        map = {}
-        result = []
-        for i in nums:
-            if i in map:
-                map[i] += 1 
+        old = 0
+        new = 0
+        count = 0
+        while new < len(nums):
+            # check whether the previous number is same as the current
+            if new != 0 and nums[new] == nums[new - 1]:
+                # increase the count
+                count += 1
             else:
-                map[i] = 1
-            if map[i] <= k:
-                result.append(i)
-        # in this problem need not to define any extra space so arranging num list again
-        for i in range(len(result)):
-            nums[i] = result[i]
-        return len(result)
-                
+                # if the first occurance
+                count = 1
+            # check the count is in given limit 
+            if count <= k:
+                # update the list with old 
+                nums[old] = nums[new]
+                # increment the old 
+                old += 1
+            # increment the new
+            new += 1
+        # return the old 
+        return old
+
         
 solution = Solution()
 print(solution.removeDuplicates([1,1,1,2,2,3]))
