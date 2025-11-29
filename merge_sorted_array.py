@@ -30,9 +30,8 @@ class Solution:
             # update with the elements
             nums1[last_index] = nums2[n-1]
             # decrement the pointer
-            n -= 1
-            last_index -= last_index
-        return nums1
+            n = n - 1
+            last_index = last_index - 1
     
 solution = Solution()
 print(solution.merge([1,2,3,0,0,0],3,[2,5,6],3))
