@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
 
-# brutforce Tc- O(2n) Sc -O(n)
+# Time Complexity- O(n) Space Complexity- O(1)
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
         k = 2
